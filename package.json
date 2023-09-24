@@ -1,0 +1,50 @@
+{
+  "name": "decentrix-fe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@biconomy/hyphen": "^1.1.6",
+    "@biconomy/smart-account": "^0.0.4",
+    "@biconomy/web3-auth": "^0.0.4",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.6.5",
+    "@moralisweb3/next": "^2.23.1",
+    "@reduxjs/toolkit": "^1.9.1",
+    "@valist/cli": "^2.6.0",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "@web3auth/web3auth": "^1.1.0",
+    "@worldcoin/id": "^0.9.2",
+    "@worldcoin/idkit": "^0.5.1",
+    "ethers": "^6.7.1",
+    "magic-sdk": "^8.1.1",
+    "moralis": "^2.23.1",
+    "moralis-v1": "^1.11.0",
+    "next": "12.2.0",
+    "next-auth": "^4.23.1",
+    "next-redux-wrapper": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-moralis": "^1.4.2",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "tw-elements": "^1.0.0-alpha12",
+    "web3uikit": "^0.1.163"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "eslint": "8.19.0",
+    "eslint-config-next": "12.2.0",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.4"
+  }
+}

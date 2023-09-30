@@ -6,13 +6,14 @@ import { useRouter } from "next/router";
 import logo from "../assets/declogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 import { useMoralis } from "react-moralis";
 import { ConnectButton } from "web3uikit";
 import { ethers } from "ethers";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const counter = useSelector((state) => state.counter.value)
   const router = useRouter();
 
   return (
@@ -88,6 +89,12 @@ function NavBar() {
                         Login
                       </a>
                     </Link>
+                      <button
+                        onClick={()=>{console.log("Hello")}}
+                        className= "text-white hover:underline hover:decoration-[#ef8157] hover:decoration-[3px] hover:underline-offset-[10px] px-3 py-2 rounded-md text-lg font-medium"
+                      >
+                        Metamask
+                      </button>
                   </div>
                 </div>
               </div>
@@ -104,7 +111,11 @@ function NavBar() {
                             : "text-white hover:text-[#ef8157] px-3 py-2 rounded-md text-3xl font-medium"
                         }
                       >
+                        <div className="relative p-2">
                         <FontAwesomeIcon icon={faCartShopping} />
+                        <h3 className=" rounded-full text-sm px-2 p-0.5 bg-red-500 text-white absolute top-0 right-0 ">{counter}</h3>
+                        </div>
+                        
                       </a>
                     </Link>
               </div>

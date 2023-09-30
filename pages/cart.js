@@ -12,6 +12,7 @@ import axios from "axios";
 const Cart = () => {
   const itemlist = useSelector((state) => state.cart.items);
   const acc = useSelector((state) => state.accountName.accountAddress);
+  const counter = useSelector((state) => state.counter.value)
   const dispatch = useDispatch();
   var total = 0;
 
@@ -79,9 +80,8 @@ const Cart = () => {
                         </span>
                         <div className="font-semibold hover:text-red-500 text-gray-500 text-xs">
                           <button
-                            onClick={() =>
-                              dispatch(removefromcart(ProductData[ind - 1].id))
-                            }
+                            onClick={() => 
+                            dispatch(removefromcart(ProductData[ind - 1].id))}
                           >
                             Remove
                           </button>

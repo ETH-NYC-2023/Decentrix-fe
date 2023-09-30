@@ -4,15 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { addtocart, removefromcart } from "../redux/cartSlice";
+import { increment, decrement } from "../redux/counterSlice";
 
 const ProductCard = (props) => {
-  const cartitems = useSelector((state) => state.cart.items);
-  const dispatch = useDispatch();
+  const cartitems = useSelector((state) => state.cart.items)
+  const counter = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
 
   const cccc = (e) => {
     e.preventDefault();
     console.log(props.data.id);
     dispatch(addtocart(props.data.id));
+    dispatch(increment())
     console.log(cartitems);
   };
   const remm = (e) => {
@@ -21,8 +24,20 @@ const ProductCard = (props) => {
     dispatch(removefromcart(props.data.id));
     console.log(cartitems);
   };
+
+  const increase = (e) => {
+    e.preventDefault()
+    dispatch(increment())
+  }
+  const decrease = (e) => {
+    e.preventDefault()
+    dispatch(decrement())
+  }
+
+
+
   return (
-    <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:shadow-md rounded-lg group">
+    <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col hover:shadow-md rounded-lg group" >
       <Link href="/">
         <a>
           <div className="hover:grow hover:shadow-lg">
@@ -55,16 +70,28 @@ const ProductCard = (props) => {
               <p className="pl-2 text-xl font-bold">{props.data.price}</p>
             </div>
             {cartitems.includes(props.data.id) ? (
-              <button
-                onClick={remm}
-                className="bg-[#ef8157] rounded-lg p-2 px-5 text-white font-extrabold"
-              >
-                Added
-              </button>
+              // <button
+              //   onClick={remm}
+              //   className="bg-[#ef8157] rounded-lg p-2 px-5 text-white font-extrabold"
+              // >
+              //   Added
+              // </button>
+              <div className="flex">
+                <button className="border px-2"
+                 onClick={decrease}>
+                  -
+                </button>
+                <h2 className="px-2 border-t border-b">{counter}</h2>
+                <button className="border px-2" 
+                onClick={increase}>
+                  +
+                </button>
+              </div>
             ) : (
               <button
                 onClick={cccc}
                 className="bg-[#ef8157] hidden group-hover:block rounded-lg p-2 px-5 text-white font-extrabold"
+                
               >
                 Buy
               </button>
